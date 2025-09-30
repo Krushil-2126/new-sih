@@ -1,4 +1,14 @@
 /* Responsive Design */
+@media (max-width: 1200px) {
+    .charts-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .ai-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
 @media (max-width: 1024px) {
     .realtime-grid {
         grid-template-columns: 1fr;
@@ -11,11 +21,21 @@
     .form-row {
         grid-template-columns: 1fr;
     }
+    
+    .ai-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .status-cards {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
 }
 
 @media (max-width: 768px) {
     .sidebar {
         transform: translateX(-100%);
+        width: 100%;
+        z-index: 1000;
     }
     
     .sidebar.active {
@@ -32,6 +52,7 @@
     
     .status-cards {
         grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
     }
     
     .config-cards {
@@ -39,11 +60,33 @@
     }
     
     .header {
-        padding: 15px 20px;
+        padding: var(--spacing-lg) var(--spacing-xl);
     }
     
     .dashboard-content {
-        padding: 20px;
+        padding: var(--spacing-xl);
+    }
+    
+    .ai-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+    
+    .charts-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+    
+    .chart-container {
+        height: 300px;
+    }
+    
+    .header-right {
+        gap: var(--spacing-md);
+    }
+    
+    .user-profile span {
+        display: none;
     }
 }
 
@@ -55,11 +98,14 @@
     .status-card {
         flex-direction: column;
         text-align: center;
+        padding: var(--spacing-lg);
     }
     
     .card-icon {
         margin-right: 0;
-        margin-bottom: 10px;
+        margin-bottom: var(--spacing-md);
+        width: 60px;
+        height: 60px;
     }
     
     .filter-controls {
@@ -68,5 +114,43 @@
     
     .api-key-input {
         flex-direction: column;
+    }
+    
+    .dashboard-content {
+        padding: var(--spacing-lg);
+    }
+    
+    .header {
+        padding: var(--spacing-md) var(--spacing-lg);
+    }
+    
+    .header-right {
+        gap: var(--spacing-sm);
+    }
+    
+    .notification, .theme-toggle {
+        padding: var(--spacing-xs);
+    }
+    
+    .user-profile {
+        padding: var(--spacing-xs);
+    }
+    
+    .user-profile img {
+        width: 30px;
+        height: 30px;
+    }
+    
+    .chart-container {
+        height: 250px;
+        padding: var(--spacing-md);
+    }
+    
+    .prediction-card, .optimization-card, .weather-card {
+        padding: var(--spacing-lg);
+    }
+    
+    .ai-section, .configuration-section, .realtime-section, .charts-section {
+        padding: var(--spacing-lg);
     }
 }

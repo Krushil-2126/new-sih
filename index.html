@@ -38,6 +38,9 @@
                     <h1>Dashboard Overview</h1>
                 </div>
                 <div class="header-right">
+                    <div class="theme-toggle" id="themeToggle">
+                        <i class="fas fa-moon"></i>
+                    </div>
                     <div class="notification">
                         <i class="fas fa-bell"></i>
                         <span class="badge">3</span>
@@ -183,6 +186,64 @@
                     </div>
                 </div>
 
+                <!-- AI Predictions & Smart Controls -->
+                <div class="ai-section">
+                    <h2><i class="fas fa-brain"></i> AI-Powered Insights <span class="ai-badge">Smart</span></h2>
+                    <div class="ai-grid">
+                        <div class="prediction-card">
+                            <h3><i class="fas fa-crystal-ball"></i> Energy Forecast</h3>
+                            <div class="prediction-content">
+                                <div class="forecast-item">
+                                    <span>Next 24h Production:</span>
+                                    <strong>42.5 kWh</strong>
+                                </div>
+                                <div class="forecast-item">
+                                    <span>Peak Generation:</span>
+                                    <strong>4.8 kW at 2:30 PM</strong>
+                                </div>
+                                <div class="forecast-item">
+                                    <span>Weather Impact:</span>
+                                    <strong>+15% (Sunny)</strong>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="optimization-card">
+                            <h3><i class="fas fa-cogs"></i> Smart Optimization</h3>
+                            <div class="optimization-content">
+                                <div class="optimization-item">
+                                    <span>Battery Strategy:</span>
+                                    <strong>Charge during peak sun</strong>
+                                </div>
+                                <div class="optimization-item">
+                                    <span>Grid Export:</span>
+                                    <strong>Optimize for 3-6 PM</strong>
+                                </div>
+                                <div class="optimization-item">
+                                    <span>Savings Potential:</span>
+                                    <strong>$45/month</strong>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="weather-card">
+                            <h3><i class="fas fa-cloud-sun"></i> Weather Integration</h3>
+                            <div class="weather-content">
+                                <div class="weather-item">
+                                    <span>Current:</span>
+                                    <strong>Sunny, 24°C</strong>
+                                </div>
+                                <div class="weather-item">
+                                    <span>Wind Speed:</span>
+                                    <strong>12 km/h</strong>
+                                </div>
+                                <div class="weather-item">
+                                    <span>Solar Irradiance:</span>
+                                    <strong>850 W/m²</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Data Charts -->
                 <div class="charts-section">
                     <div class="charts-header">
@@ -201,6 +262,12 @@
                         </div>
                         <div class="chart-container">
                             <canvas id="efficiencyChart"></canvas>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="weatherChart"></canvas>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="predictionChart"></canvas>
                         </div>
                     </div>
                 </div>

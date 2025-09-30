@@ -1,5 +1,31 @@
 // Dashboard-specific JavaScript
 let productionChartInstance;
+let weatherChartInstance;
+let predictionChartInstance;
+
+// AI Prediction Data
+const aiPredictions = {
+    next24h: 42.5,
+    peakGeneration: { value: 4.8, time: '2:30 PM' },
+    weatherImpact: 15,
+    batteryStrategy: 'Charge during peak sun',
+    gridExport: 'Optimize for 3-6 PM',
+    savingsPotential: 45
+};
+
+// Weather Data
+const weatherData = {
+    current: { condition: 'Sunny', temperature: 24 },
+    windSpeed: 12,
+    solarIrradiance: 850,
+    forecast: [
+        { time: '00:00', temp: 18, condition: 'Clear', irradiance: 0 },
+        { time: '06:00', temp: 20, condition: 'Sunny', irradiance: 200 },
+        { time: '12:00', temp: 26, condition: 'Sunny', irradiance: 900 },
+        { time: '18:00', temp: 22, condition: 'Partly Cloudy', irradiance: 300 },
+        { time: '24:00', temp: 19, condition: 'Clear', irradiance: 0 }
+    ]
+};
 
 // Initialize charts
 function initializeCharts() {
@@ -76,9 +102,11 @@ function initializeCharts() {
                     {
                         label: 'System Efficiency (%)',
                         data: [82, 85, 78, 88, 90, 76, 83],
-                        backgroundColor: 'rgba(46, 204, 113, 0.7)',
-                        borderColor: '#2ecc71',
-                        borderWidth: 1
+                        backgroundColor: 'rgba(0, 212, 170, 0.7)',
+                        borderColor: '#00d4aa',
+                        borderWidth: 2,
+                        borderRadius: 8,
+                        borderSkipped: false,
                     }
                 ]
             },
@@ -88,7 +116,12 @@ function initializeCharts() {
                 plugins: {
                     title: {
                         display: true,
-                        text: 'Weekly System Efficiency'
+                        text: 'Weekly System Efficiency',
+                        color: '#1e293b',
+                        font: { size: 14, weight: 'bold' }
+                    },
+                    legend: {
+                        display: false
                     }
                 },
                 scales: {
@@ -97,7 +130,133 @@ function initializeCharts() {
                         max: 100,
                         title: {
                             display: true,
-                            text: 'Efficiency (%)'
+                            text: 'Efficiency (%)',
+                            color: '#64748b'
+                        },
+                        grid: {
+                            color: 'rgba(100, 116, 139, 0.1)'
+                        }
+                    },
+                    x: {
+                        grid: {
+                            display: false
+                        }
+                    }
+                }
+            }
+        });
+    }
+
+    // Weather Chart
+    const weatherCtx = document.getElementById('weatherChart');
+    if (weatherCtx) {
+        weatherChartInstance = new Chart(weatherCtx, {
+            type: 'line',
+            data: {
+                labels: weatherData.forecast.map(item => item.time),
+                datasets: [
+                    {
+                        label: 'Temperature (°C)',
+                        data: weatherData.forecast.map(item => item.temp),
+                        borderColor: '#ff6b6b',
+                        backgroundColor: 'rgba(255, 107, 107, 0.1)',
+                        tension: 0.4,
+                        yAxisID: 'y'
+                    },
+                    {
+                        label: 'Solar Irradiance (W/m²)',
+                        data: weatherData.forecast.map(item => item.irradiance),
+                        borderColor: '#f59e0b',
+                        backgroundColor: 'rgba(245, 158, 11, 0.1)',
+                        tension: 0.4,
+                        yAxisID: 'y1'
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Weather & Solar Conditions',
+                        color: '#1e293b',
+                        font: { size: 14, weight: 'bold' }
+                    }
+                },
+                scales: {
+                    y: {
+                        type: 'linear',
+                        display: true,
+                        position: 'left',
+                        title: {
+                            display: true,
+                            text: 'Temperature (°C)',
+                            color: '#64748b'
+                        }
+                    },
+                    y1: {
+                        type: 'linear',
+                        display: true,
+                        position: 'right',
+                        title: {
+                            display: true,
+                            text: 'Solar Irradiance (W/m²)',
+                            color: '#64748b'
+                        },
+                        grid: {
+                            drawOnChartArea: false,
+                        },
+                    }
+                }
+            }
+        });
+    }
+
+    // Prediction Chart
+    const predictionCtx = document.getElementById('predictionChart');
+    if (predictionCtx) {
+        predictionChartInstance = new Chart(predictionCtx, {
+            type: 'line',
+            data: {
+                labels: ['Now', '+1h', '+2h', '+3h', '+4h', '+5h', '+6h'],
+                datasets: [
+                    {
+                        label: 'Actual Production',
+                        data: [4.2, 4.5, 4.8, 4.6, 4.3, 3.9, 3.2],
+                        borderColor: '#3b82f6',
+                        backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                        tension: 0.4,
+                        borderDash: [5, 5]
+                    },
+                    {
+                        label: 'AI Prediction',
+                        data: [4.2, 4.6, 4.9, 4.7, 4.4, 4.0, 3.3],
+                        borderColor: '#8b5cf6',
+                        backgroundColor: 'rgba(139, 92, 246, 0.1)',
+                        tension: 0.4,
+                        fill: true
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'AI Energy Production Forecast',
+                        color: '#1e293b',
+                        font: { size: 14, weight: 'bold' }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Power (kW)',
+                            color: '#64748b'
                         }
                     }
                 }
@@ -164,9 +323,10 @@ function updateRealtimeData() {
     const batteryValue = Math.max(0, Math.min(100, 78 + (Math.random() * 4 - 2)));
     
     // Update status cards
-    document.querySelector('.status-card:nth-child(1) .value').textContent = `${solarValue} kW`;
-    document.querySelector('.status-card:nth-child(2) .value').textContent = `${windValue} kW`;
-    document.querySelector('.status-card:nth-child(3) .value').textContent = `${batteryValue.toFixed(0)}%`;
+    const statusCards = document.querySelectorAll('.status-card');
+    if (statusCards[0]) statusCards[0].querySelector('.value').textContent = `${solarValue} kW`;
+    if (statusCards[1]) statusCards[1].querySelector('.value').textContent = `${windValue} kW`;
+    if (statusCards[2]) statusCards[2].querySelector('.value').textContent = `${batteryValue.toFixed(0)}%`;
     
     // Update equipment uptime
     const equipmentItems = document.querySelectorAll('.equipment-item');
@@ -178,6 +338,42 @@ function updateRealtimeData() {
             uptimeElement.textContent = incrementUptime(currentTime);
         }
     });
+
+    // Update AI predictions with slight variations
+    updateAIPredictions();
+    
+    // Update weather data
+    updateWeatherData();
+}
+
+// Update AI predictions
+function updateAIPredictions() {
+    // Simulate AI prediction updates
+    const next24hElement = document.querySelector('.forecast-item strong');
+    if (next24hElement) {
+        const baseValue = aiPredictions.next24h;
+        const variation = (Math.random() - 0.5) * 2; // ±1 kWh variation
+        next24hElement.textContent = `${(baseValue + variation).toFixed(1)} kWh`;
+    }
+}
+
+// Update weather data
+function updateWeatherData() {
+    // Simulate weather data updates
+    const weatherItems = document.querySelectorAll('.weather-item strong');
+    if (weatherItems.length >= 3) {
+        // Update temperature
+        const tempVariation = (Math.random() - 0.5) * 2; // ±1°C variation
+        weatherItems[0].textContent = `Sunny, ${(weatherData.current.temperature + tempVariation).toFixed(0)}°C`;
+        
+        // Update wind speed
+        const windVariation = (Math.random() - 0.5) * 4; // ±2 km/h variation
+        weatherItems[1].textContent = `${(weatherData.windSpeed + windVariation).toFixed(0)} km/h`;
+        
+        // Update solar irradiance
+        const irradianceVariation = (Math.random() - 0.5) * 100; // ±50 W/m² variation
+        weatherItems[2].textContent = `${(weatherData.solarIrradiance + irradianceVariation).toFixed(0)} W/m²`;
+    }
 }
 
 // Helper function to increment uptime display
@@ -213,7 +409,81 @@ document.addEventListener('DOMContentLoaded', function() {
             updateChartData(e.target.value);
         });
     }
+
+    // Add smooth animations to cards
+    addCardAnimations();
+    
+    // Initialize smart notifications
+    initializeSmartNotifications();
 });
+
+// Add smooth animations to cards
+function addCardAnimations() {
+    const cards = document.querySelectorAll('.status-card, .config-card, .prediction-card, .optimization-card, .weather-card');
+    
+    cards.forEach((card, index) => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(20px)';
+        
+        setTimeout(() => {
+            card.style.transition = 'all 0.6s ease';
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+        }, index * 100);
+    });
+}
+
+// Initialize smart notifications
+function initializeSmartNotifications() {
+    // Simulate smart notifications based on system conditions
+    setTimeout(() => {
+        showSmartNotification('Battery optimization recommended during peak sun hours', 'info');
+    }, 10000);
+    
+    setTimeout(() => {
+        showSmartNotification('Weather forecast predicts 20% increase in solar production tomorrow', 'success');
+    }, 15000);
+}
+
+// Show smart notification
+function showSmartNotification(message, type = 'info') {
+    const notification = document.createElement('div');
+    notification.className = `smart-notification ${type}`;
+    notification.innerHTML = `
+        <div class="notification-content">
+            <i class="fas fa-${type === 'success' ? 'check-circle' : type === 'warning' ? 'exclamation-triangle' : 'info-circle'}"></i>
+            <span>${message}</span>
+            <button class="notification-close" onclick="this.parentElement.parentElement.remove()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    `;
+    
+    // Add notification styles
+    notification.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: var(--bg-primary);
+        border: 1px solid var(--border-color);
+        border-radius: var(--radius-lg);
+        padding: var(--spacing-md);
+        box-shadow: 0 8px 25px var(--shadow);
+        z-index: 1000;
+        max-width: 400px;
+        animation: slideIn 0.3s ease;
+    `;
+    
+    document.body.appendChild(notification);
+    
+    // Auto remove after 5 seconds
+    setTimeout(() => {
+        if (notification.parentElement) {
+            notification.style.animation = 'slideOut 0.3s ease';
+            setTimeout(() => notification.remove(), 300);
+        }
+    }, 5000);
+}
 
 function updateChartData(timeRange) {
     if (!productionChartInstance) return;
