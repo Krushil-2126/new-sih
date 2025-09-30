@@ -1,0 +1,146 @@
+[
+  {
+    "name": "Kota",
+    "lat": 25.2138,
+    "lon": 75.8648,
+    "country": "IN"
+  },
+  {
+    "name": "Alwar",
+    "lat": 27.5520,
+    "lon": 76.6346,
+    "country": "IN"
+  },
+  {
+    "name": "Sri Ganganagar",
+    "lat": 29.9094,
+    "lon": 73.8801,
+    "country": "IN"
+  },
+  {
+    "name": "Sikar",
+    "lat": 27.6094,
+    "lon": 75.1399,
+    "country": "IN"
+  },
+  {
+    "name": "Pali",
+    "lat": 25.7710,
+    "lon": 73.3234,
+    "country": "IN"
+  },
+  {
+    "name": "Tonk",
+    "lat": 26.1664,
+    "lon": 75.7895,
+    "country": "IN"
+  },
+  {
+    "name": "Bundi",
+    "lat": 25.4383,
+    "lon": 75.6374,
+    "country": "IN"
+  },
+  {
+    "name": "Chittorgarh",
+    "lat": 24.8887,
+    "lon": 74.6269,
+    "country": "IN"
+  },
+  {
+    "name": "Jhalawar",
+    "lat": 24.5965,
+    "lon": 76.1650,
+    "country": "IN"
+  },
+  {
+    "name": "Sawai Madhopur",
+    "lat": 26.0229,
+    "lon": 76.3441,
+    "country": "IN"
+  },
+  {
+    "name": "Nagaur",
+    "lat": 27.2020,
+    "lon": 73.7339,
+    "country": "IN"
+  },
+  {
+    "name": "Baran",
+    "lat": 25.1011,
+    "lon": 76.5132,
+    "country": "IN"
+  },
+  {
+    "name": "Dausa",
+    "lat": 26.8907,
+    "lon": 76.3375,
+    "country": "IN"
+  },
+  {
+    "name": "Rajsamand",
+    "lat": 25.0714,
+    "lon": 73.8798,
+    "country": "IN"
+  },
+  {
+    "name": "Hanumangarh",
+    "lat": 29.5818,
+    "lon": 74.3294,
+    "country": "IN"
+  },
+  {
+    "name": "Karauli",
+    "lat": 26.4983,
+    "lon": 77.0276,
+    "country": "IN"
+  },
+  {
+    "name": "Jhunjhunu",
+    "lat": 28.1289,
+    "lon": 75.3990,
+    "country": "IN"
+  },
+  {
+    "name": "Churu",
+    "lat": 28.3041,
+    "lon": 74.9672,
+    "country": "IN"
+  },
+  {
+    "name": "Sirohi",
+    "lat": 24.8884,
+    "lon": 72.8479,
+    "country": "IN"
+  },
+  {
+    "name": "Dungarpur",
+    "lat": 23.8433,
+    "lon": 73.7147,
+    "country": "IN"
+  },
+  {
+    "name": "Banswara",
+    "lat": 23.5468,
+    "lon": 74.4425,
+    "country": "IN"
+  },
+  {
+    "name": "Pratapgarh",
+    "lat": 24.0322,
+    "lon": 74.7819,
+    "country": "IN"
+  },
+  {
+    "name": "Barmer",
+    "lat": 25.7532,
+    "lon": 71.4181,
+    "country": "IN"
+  },
+  {
+    "name": "Jaisalmer",
+    "lat": 26.9157,
+    "lon": 70.9083,
+    "country": "IN"
+  }
+]
