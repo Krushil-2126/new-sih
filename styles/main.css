@@ -6,44 +6,45 @@
 }
 
 :root {
-    /* Modern Color Palette */
-    --primary: #1a1a2e;
-    --secondary: #16213e;
-    --accent: #0f3460;
-    --highlight: #533483;
-    --success: #00d4aa;
-    --warning: #ff6b6b;
-    --error: #ff4757;
-    --info: #3742fa;
+    /* Professional Color Palette */
+    --primary: #0f172a;
+    --secondary: #1e293b;
+    --accent: #3b82f6;
+    --highlight: #6366f1;
+    --success: #10b981;
+    --warning: #f59e0b;
+    --error: #ef4444;
+    --info: #06b6d4;
     
     /* Light Theme Colors */
     --bg-primary: #ffffff;
     --bg-secondary: #f8fafc;
     --bg-tertiary: #f1f5f9;
-    --text-primary: #1e293b;
-    --text-secondary: #64748b;
-    --text-muted: #94a3b8;
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --text-muted: #64748b;
     --border-color: #e2e8f0;
-    --shadow: rgba(0, 0, 0, 0.1);
+    --shadow: rgba(15, 23, 42, 0.08);
     
     /* Energy Source Colors */
     --solar: #f59e0b;
-    --wind: #3b82f6;
+    --wind: #06b6d4;
     --battery: #8b5cf6;
     --grid: #ef4444;
-    --hydro: #06b6d4;
-    --geothermal: #10b981;
+    --hydro: #10b981;
+    --geothermal: #6366f1;
     
-    /* Gradient Colors */
-    --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-    --gradient-success: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-    --gradient-warning: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+    /* Professional Gradients */
+    --gradient-primary: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+    --gradient-secondary: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+    --gradient-success: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    --gradient-warning: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+    --gradient-accent: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
     
     /* Glassmorphism */
-    --glass-bg: rgba(255, 255, 255, 0.1);
-    --glass-border: rgba(255, 255, 255, 0.2);
-    --glass-shadow: rgba(0, 0, 0, 0.1);
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --glass-shadow: rgba(15, 23, 42, 0.1);
     
     /* Animation */
     --transition-fast: 0.2s ease;
@@ -71,13 +72,13 @@
     --bg-primary: #0f172a;
     --bg-secondary: #1e293b;
     --bg-tertiary: #334155;
-    --text-primary: #f1f5f9;
+    --text-primary: #f8fafc;
     --text-secondary: #cbd5e1;
-    --text-muted: #64748b;
+    --text-muted: #94a3b8;
     --border-color: #334155;
-    --shadow: rgba(0, 0, 0, 0.3);
+    --shadow: rgba(0, 0, 0, 0.25);
     
-    --glass-bg: rgba(0, 0, 0, 0.2);
+    --glass-bg: rgba(255, 255, 255, 0.05);
     --glass-border: rgba(255, 255, 255, 0.1);
 }
 
@@ -96,7 +97,7 @@ body {
 /* Sidebar Styles */
 .sidebar {
     width: 280px;
-    background: var(--gradient-primary);
+    background: var(--gradient-accent);
     backdrop-filter: blur(20px);
     color: white;
     height: 100vh;
@@ -119,9 +120,9 @@ body {
 
 .logo i {
     margin-right: var(--spacing-md);
-    color: var(--success);
+    color: var(--accent);
     font-size: 1.8rem;
-    filter: drop-shadow(0 0 10px rgba(0, 212, 170, 0.3));
+    filter: drop-shadow(0 0 10px rgba(59, 130, 246, 0.3));
 }
 
 .nav-links {
@@ -147,7 +148,7 @@ body {
 
 .nav-links a:hover, .nav-links a.active {
     background: var(--glass-bg);
-    border-left-color: var(--success);
+    border-left-color: var(--accent);
     color: white;
     transform: translateX(5px);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
@@ -269,13 +270,13 @@ body {
     height: 40px;
     border-radius: 50%;
     object-fit: cover;
-    border: 2px solid var(--success);
+    border: 2px solid var(--accent);
     transition: all var(--transition-fast);
 }
 
 .user-profile:hover img {
     transform: scale(1.1);
-    box-shadow: 0 0 15px rgba(0, 212, 170, 0.3);
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.3);
 }
 
 /* Theme Toggle */
@@ -331,13 +332,13 @@ body {
     left: 0;
     right: 0;
     height: 4px;
-    background: var(--gradient-primary);
+    background: var(--gradient-accent);
 }
 
 .status-card:hover {
     transform: translateY(-8px);
     box-shadow: 0 15px 35px var(--shadow);
-    border-color: var(--success);
+    border-color: var(--accent);
 }
 
 .card-icon {
@@ -360,7 +361,7 @@ body {
     inset: -2px;
     border-radius: var(--radius-xl);
     padding: 2px;
-    background: var(--gradient-primary);
+    background: var(--gradient-accent);
     mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     mask-composite: exclude;
     opacity: 0;
@@ -372,20 +373,20 @@ body {
 }
 
 .card-icon.solar { 
-    background: linear-gradient(135deg, var(--solar) 0%, #fbbf24 100%);
-    box-shadow: 0 8px 25px rgba(245, 158, 11, 0.3);
+    background: linear-gradient(135deg, var(--solar) 0%, #d97706 100%);
+    box-shadow: 0 8px 25px rgba(245, 158, 11, 0.25);
 }
 .card-icon.wind { 
-    background: linear-gradient(135deg, var(--wind) 0%, #60a5fa 100%);
-    box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
+    background: linear-gradient(135deg, var(--wind) 0%, #0891b2 100%);
+    box-shadow: 0 8px 25px rgba(6, 182, 212, 0.25);
 }
 .card-icon.battery { 
-    background: linear-gradient(135deg, var(--battery) 0%, #a78bfa 100%);
-    box-shadow: 0 8px 25px rgba(139, 92, 246, 0.3);
+    background: linear-gradient(135deg, var(--battery) 0%, #7c3aed 100%);
+    box-shadow: 0 8px 25px rgba(139, 92, 246, 0.25);
 }
 .card-icon.grid { 
-    background: linear-gradient(135deg, var(--grid) 0%, #f87171 100%);
-    box-shadow: 0 8px 25px rgba(239, 68, 68, 0.3);
+    background: linear-gradient(135deg, var(--grid) 0%, #dc2626 100%);
+    box-shadow: 0 8px 25px rgba(239, 68, 68, 0.25);
 }
 
 .card-info h3 {
@@ -401,7 +402,7 @@ body {
     display: block;
     margin-bottom: var(--spacing-sm);
     color: var(--text-primary);
-    background: var(--gradient-primary);
+    background: var(--gradient-accent);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -419,12 +420,12 @@ body {
 }
 
 .status.active { 
-    background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%); 
-    color: #155724; 
+    background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%); 
+    color: #065f46; 
 }
 .status.charging { 
-    background: linear-gradient(135deg, #d1ecf1 0%, #bee5eb 100%); 
-    color: #0c5460; 
+    background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%); 
+    color: #1e40af; 
 }
 
 /* Configuration Section */
@@ -446,7 +447,7 @@ body {
     left: 0;
     right: 0;
     height: 4px;
-    background: var(--gradient-success);
+    background: var(--gradient-primary);
 }
 
 .configuration-section h2 {
@@ -476,7 +477,7 @@ body {
 .config-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 30px var(--shadow);
-    border-color: var(--success);
+    border-color: var(--accent);
 }
 
 .config-card h3 {
@@ -514,8 +515,8 @@ body {
 
 .input-group input:focus, .input-group select:focus {
     outline: none;
-    border-color: var(--success);
-    box-shadow: 0 0 0 3px rgba(0, 212, 170, 0.1);
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
     transform: translateY(-1px);
 }
 
@@ -532,7 +533,7 @@ body {
 }
 
 .saved-message {
-    color: var(--success);
+    color: var(--accent);
     font-size: 0.8rem;
     margin-left: var(--spacing-md);
     animation: fadeOut 2s forwards;
@@ -564,7 +565,7 @@ body {
     left: 0;
     right: 0;
     height: 4px;
-    background: var(--gradient-warning);
+    background: var(--gradient-secondary);
 }
 
 .realtime-section h2 {
@@ -592,9 +593,9 @@ body {
 }
 
 @keyframes pulse {
-    0% { box-shadow: 0 0 0 0 rgba(255, 107, 107, 0.7); }
-    70% { box-shadow: 0 0 0 10px rgba(255, 107, 107, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(255, 107, 107, 0); }
+    0% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.7); }
+    70% { box-shadow: 0 0 0 10px rgba(245, 158, 11, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0); }
 }
 
 .realtime-grid {
@@ -614,6 +615,7 @@ body {
 .energy-flow:hover, .equipment-status:hover {
     transform: translateY(-3px);
     box-shadow: 0 8px 25px var(--shadow);
+    border-color: var(--accent);
 }
 
 .energy-flow h3, .equipment-status h3 {
@@ -647,8 +649,8 @@ body {
 .flow-arrow {
     font-size: 1.8rem;
     animation: flow 2s linear infinite;
-    color: var(--success);
-    filter: drop-shadow(0 0 5px rgba(0, 212, 170, 0.3));
+    color: var(--accent);
+    filter: drop-shadow(0 0 5px rgba(59, 130, 246, 0.3));
 }
 
 @keyframes flow {
@@ -677,7 +679,7 @@ body {
 .equipment-item:hover {
     transform: translateX(5px);
     box-shadow: 0 4px 15px var(--shadow);
-    border-color: var(--success);
+    border-color: var(--accent);
 }
 
 .status-badge {
@@ -690,9 +692,9 @@ body {
 }
 
 .status-badge.online {
-    background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
-    color: #155724;
-    box-shadow: 0 2px 8px rgba(21, 87, 36, 0.2);
+    background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+    color: #065f46;
+    box-shadow: 0 2px 8px rgba(6, 95, 70, 0.2);
 }
 
 .uptime {
@@ -719,7 +721,7 @@ body {
     left: 0;
     right: 0;
     height: 4px;
-    background: var(--gradient-secondary);
+    background: var(--gradient-primary);
 }
 
 .charts-header {
@@ -751,8 +753,8 @@ body {
 
 .chart-filter select:focus {
     outline: none;
-    border-color: var(--success);
-    box-shadow: 0 0 0 3px rgba(0, 212, 170, 0.1);
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
 }
 
 .charts-grid {
@@ -780,7 +782,7 @@ body {
     left: 0;
     right: 0;
     height: 4px;
-    background: var(--gradient-primary);
+    background: var(--gradient-accent);
 }
 
 .ai-section h2 {
@@ -795,7 +797,7 @@ body {
 }
 
 .ai-badge {
-    background: var(--gradient-primary);
+    background: var(--gradient-accent);
     color: white;
     font-size: 0.8rem;
     padding: var(--spacing-xs) var(--spacing-md);
@@ -830,7 +832,7 @@ body {
     left: 0;
     right: 0;
     height: 3px;
-    background: var(--gradient-success);
+    background: var(--gradient-primary);
 }
 
 .optimization-card::before {
@@ -840,7 +842,7 @@ body {
     left: 0;
     right: 0;
     height: 3px;
-    background: var(--gradient-warning);
+    background: var(--gradient-secondary);
 }
 
 .weather-card::before {
@@ -850,13 +852,13 @@ body {
     left: 0;
     right: 0;
     height: 3px;
-    background: var(--gradient-secondary);
+    background: var(--gradient-success);
 }
 
 .prediction-card:hover, .optimization-card:hover, .weather-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 30px var(--shadow);
-    border-color: var(--success);
+    border-color: var(--accent);
 }
 
 .prediction-card h3, .optimization-card h3, .weather-card h3 {
@@ -953,4 +955,5 @@ body {
 .chart-container:hover {
     transform: translateY(-3px);
     box-shadow: 0 8px 25px var(--shadow);
+    border-color: var(--accent);
 }

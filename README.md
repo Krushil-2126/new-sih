@@ -77,12 +77,12 @@ krushil/
 ## 🎨 Design System
 
 ### Color Palette
-- **Primary**: Deep navy (#1a1a2e)
-- **Secondary**: Ocean blue (#16213e)
-- **Accent**: Electric blue (#0f3460)
-- **Success**: Teal (#00d4aa)
-- **Warning**: Coral (#ff6b6b)
-- **Energy Colors**: Solar (amber), Wind (blue), Battery (purple), Grid (red)
+- **Primary**: Slate dark (#0f172a)
+- **Secondary**: Slate medium (#1e293b)
+- **Accent**: Blue professional (#3b82f6)
+- **Success**: Emerald green (#10b981)
+- **Warning**: Amber (#f59e0b)
+- **Energy Colors**: Solar (amber), Wind (cyan), Battery (purple), Grid (red)
 
 ### Typography
 - **Font Family**: Segoe UI, system fonts
@@ -134,9 +134,9 @@ krushil/
 Edit CSS custom properties in `styles/main.css`:
 ```css
 :root {
-    --primary: #1a1a2e;
-    --secondary: #16213e;
-    --accent: #0f3460;
+    --primary: #0f172a;
+    --secondary: #1e293b;
+    --accent: #3b82f6;
     /* ... more variables */
 }
 ```

@@ -40,22 +40,22 @@ function initializeCharts() {
                     {
                         label: 'Solar Production',
                         data: [0, 0, 3.2, 6.8, 4.5, 0.5],
-                        borderColor: '#f39c12',
-                        backgroundColor: 'rgba(243, 156, 18, 0.1)',
+                        borderColor: '#f59e0b',
+                        backgroundColor: 'rgba(245, 158, 11, 0.1)',
                         tension: 0.4
                     },
                     {
                         label: 'Wind Production',
                         data: [2.1, 2.8, 1.5, 1.2, 2.5, 3.1],
-                        borderColor: '#3498db',
-                        backgroundColor: 'rgba(52, 152, 219, 0.1)',
+                        borderColor: '#06b6d4',
+                        backgroundColor: 'rgba(6, 182, 212, 0.1)',
                         tension: 0.4
                     },
                     {
                         label: 'Consumption',
                         data: [1.5, 1.2, 3.8, 4.2, 5.1, 4.3],
-                        borderColor: '#e74c3c',
-                        backgroundColor: 'rgba(231, 76, 60, 0.1)',
+                        borderColor: '#ef4444',
+                        backgroundColor: 'rgba(239, 68, 68, 0.1)',
                         tension: 0.4
                     }
                 ]
@@ -102,8 +102,8 @@ function initializeCharts() {
                     {
                         label: 'System Efficiency (%)',
                         data: [82, 85, 78, 88, 90, 76, 83],
-                        backgroundColor: 'rgba(0, 212, 170, 0.7)',
-                        borderColor: '#00d4aa',
+                        backgroundColor: 'rgba(16, 185, 129, 0.7)',
+                        borderColor: '#10b981',
                         borderWidth: 2,
                         borderRadius: 8,
                         borderSkipped: false,
@@ -158,8 +158,8 @@ function initializeCharts() {
                     {
                         label: 'Temperature (°C)',
                         data: weatherData.forecast.map(item => item.temp),
-                        borderColor: '#ff6b6b',
-                        backgroundColor: 'rgba(255, 107, 107, 0.1)',
+                        borderColor: '#ef4444',
+                        backgroundColor: 'rgba(239, 68, 68, 0.1)',
                         tension: 0.4,
                         yAxisID: 'y'
                     },
@@ -232,8 +232,8 @@ function initializeCharts() {
                     {
                         label: 'AI Prediction',
                         data: [4.2, 4.6, 4.9, 4.7, 4.4, 4.0, 3.3],
-                        borderColor: '#8b5cf6',
-                        backgroundColor: 'rgba(139, 92, 246, 0.1)',
+                        borderColor: '#6366f1',
+                        backgroundColor: 'rgba(99, 102, 241, 0.1)',
                         tension: 0.4,
                         fill: true
                     }
