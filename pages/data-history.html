@@ -1,215 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Data History | EnergyGrid Pro</title>
     <link rel="stylesheet" href="../styles/main.css">
     <link rel="stylesheet" href="../styles/dashboard.css">
     <link rel="stylesheet" href="../styles/responsive.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
 </head>
 <body>
     <div class="app-container">
-        <!-- Sidebar Navigation -->
-        <nav class="sidebar" id="sidebar">
-            <div class="logo">
-                <i class="fas fa-bolt"></i>
-                <span>EnergyGrid Pro</span>
-            </div>
-            <ul class="nav-links">
-                <li><a href="../index.html"><i class="fas fa-home"></i> Dashboard</a></li>
-                <li><a href="dashboard.html"><i class="fas fa-solar-panel"></i> Assets</a></li>
-                <li><a href="data-history.html" class="active"><i class="fas fa-history"></i> Data History</a></li>
-                <li><a href="profile.html"><i class="fas fa-user"></i> Profile</a></li>
-                <li><a href="settings.html"><i class="fas fa-cog"></i> Settings</a></li>
-            </ul>
-        </nav>
-
-        <!-- Main Content -->
-        <main class="main-content">
-            <!-- Header -->
-            <header class="header">
-                <div class="header-left">
-                    <button class="menu-toggle" id="menuToggle">
-                        <i class="fas fa-bars"></i>
-                    </button>
-                    <h1>Data History & Analytics</h1>
-                </div>
-                <div class="header-right">
-                    <div class="theme-toggle" id="themeToggle">
-                        <i class="fas fa-moon"></i>
-                    </div>
-                    <div class="notification">
-                        <i class="fas fa-bell"></i>
-                        <span class="badge">1</span>
-                    </div>
-                    <div class="user-profile">
-                        <img src="../assets/user-avatar.png" alt="User">
-                        <span>John Doe</span>
-                    </div>
-                </div>
-            </header>
-
-            <!-- Data History Content -->
-            <div class="dashboard-content">
-                <!-- Filter Controls -->
-                <div class="filter-section">
-                    <h2><i class="fas fa-filter"></i> Data Filters</h2>
-                    <div class="filter-controls">
-                        <div class="filter-group">
-                            <label for="dateRange">Date Range</label>
-                            <select id="dateRange">
-                                <option value="today">Today</option>
-                                <option value="7days">Last 7 Days</option>
-                                <option value="30days" selected>Last 30 Days</option>
-                                <option value="90days">Last 90 Days</option>
-                                <option value="custom">Custom Range</option>
-                            </select>
-                        </div>
-                        <div class="filter-group">
-                            <label for="dataType">Data Type</label>
-                            <select id="dataType">
-                                <option value="all" selected>All Data</option>
-                                <option value="production">Production Only</option>
-                                <option value="consumption">Consumption Only</option>
-                                <option value="efficiency">Efficiency Metrics</option>
-                            </select>
-                        </div>
-                        <div class="filter-group">
-                            <label for="exportFormat">Export Format</label>
-                            <select id="exportFormat">
-                                <option value="csv">CSV</option>
-                                <option value="json">JSON</option>
-                                <option value="pdf">PDF Report</option>
-                            </select>
-                        </div>
-                        <div class="filter-actions">
-                            <button class="export-btn" onclick="exportData()">
-                                <i class="fas fa-download"></i> Export Data
-                            </button>
-                            <button class="refresh-btn" onclick="refreshData()">
-                                <i class="fas fa-sync"></i> Refresh
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Summary Cards -->
-                <div class="summary-section">
-                    <h2><i class="fas fa-chart-line"></i> Performance Summary</h2>
-                    <div class="summary-cards">
-                        <div class="summary-card">
-                            <div class="summary-icon">
-                                <i class="fas fa-sun"></i>
-                            </div>
-                            <div class="summary-content">
-                                <h3>Total Production</h3>
-                                <span class="summary-value">1,247 kWh</span>
-                                <span class="summary-change positive">+12.5%</span>
-                            </div>
-                        </div>
-                        <div class="summary-card">
-                            <div class="summary-icon">
-                                <i class="fas fa-bolt"></i>
-                            </div>
-                            <div class="summary-content">
-                                <h3>Total Consumption</h3>
-                                <span class="summary-value">892 kWh</span>
-                                <span class="summary-change negative">-3.2%</span>
-                            </div>
-                        </div>
-                        <div class="summary-card">
-                            <div class="summary-icon">
-                                <i class="fas fa-percentage"></i>
-                            </div>
-                            <div class="summary-content">
-                                <h3>Average Efficiency</h3>
-                                <span class="summary-value">87.3%</span>
-                                <span class="summary-change positive">+2.1%</span>
-                            </div>
-                        </div>
-                        <div class="summary-card">
-                            <div class="summary-icon">
-                                <i class="fas fa-dollar-sign"></i>
-                            </div>
-                            <div class="summary-content">
-                                <h3>Cost Savings</h3>
-                                <span class="summary-value">$156.80</span>
-                                <span class="summary-change positive">+8.7%</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Advanced Charts -->
-                <div class="charts-section">
-                    <div class="charts-header">
-                        <h2>Advanced Analytics</h2>
-                        <div class="chart-controls">
-                            <button class="chart-btn active" onclick="switchChartView('timeline')">
-                                <i class="fas fa-chart-line"></i> Timeline
-                            </button>
-                            <button class="chart-btn" onclick="switchChartView('heatmap')">
-                                <i class="fas fa-th"></i> Heatmap
-                            </button>
-                            <button class="chart-btn" onclick="switchChartView('comparison')">
-                                <i class="fas fa-balance-scale"></i> Comparison
-                            </button>
-                        </div>
-                    </div>
-                    <div class="charts-grid">
-                        <div class="chart-container large">
-                            <canvas id="timelineChart"></canvas>
-                        </div>
-                        <div class="chart-container">
-                            <canvas id="efficiencyChart"></canvas>
-                        </div>
-                        <div class="chart-container">
-                            <canvas id="costChart"></canvas>
-                        </div>
-                        <div class="chart-container">
-                            <canvas id="weatherCorrelationChart"></canvas>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Data Table -->
-                <div class="table-section">
-                    <h2><i class="fas fa-table"></i> Historical Data</h2>
-                    <div class="table-container">
-                        <table class="data-table">
-                            <thead>
-                                <tr>
-                                    <th>Date</th>
-                                    <th>Solar (kWh)</th>
-                                    <th>Wind (kWh)</th>
-                                    <th>Consumption (kWh)</th>
-                                    <th>Efficiency (%)</th>
-                                    <th>Cost ($)</th>
-                                    <th>Weather</th>
-                                </tr>
-                            </thead>
-                            <tbody id="dataTableBody">
-                                <!-- Data will be populated by JavaScript -->
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="table-pagination">
-                        <button class="page-btn" onclick="previousPage()">
-                            <i class="fas fa-chevron-left"></i> Previous
-                        </button>
-                        <span class="page-info">Page 1 of 5</span>
-                        <button class="page-btn" onclick="nextPage()">
-                            Next <i class="fas fa-chevron-right"></i>
-                        </button>
-                    </div>
-            </div>
+{{ ... }}
         </main>
     </div>
 
     <script src="../scripts/main.js"></script>
     <script src="../scripts/smart-meter.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     <script src="../scripts/data-history.js"></script>
